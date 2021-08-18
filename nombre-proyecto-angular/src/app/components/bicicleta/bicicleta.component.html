@@ -1,0 +1,48 @@
+<div class="row-cols-1 m-auto pb-3" style="background-color: rgb(241, 241, 241);">
+    <div class="m-auto bg-white p-5 text-center">
+            <H2 style="font-weight: bold;font-size: 300%;">BICICLETAS</H2>
+    </div>
+    <div class="row row-cols-2 row-cols-md-4 m-auto mb-2 mt-3">
+        <div class="row-cols-1 mt-2">
+            <label class="text-center h-100" for="categoria" style="font-weight: bold;">Buscar Por categoria</label>
+        </div>
+        <div class="row-cols-1 mt-2">
+            <select class="" name="categoria" id="categoria" style="height: 100%;">
+                <option value="none" selected disabled>Seleccione una Categoria</option>
+                <option value="Menor">Menor</option>
+                <option value="Mayor">Mayor</option>
+            </select>
+        </div>
+        <div class="row-cols-1 mt-2">
+                <button class="btn btn-light">Buscar</button> 
+        </div>
+        <div class="row-cols-1 mt-2" >
+                <button type="button" class="btn btn-light">Listar todas</button>
+        </div>
+    </div>
+    <div class="w-75 m-auto">
+            <div class="row-cols-1 w-50 m-auto mt-4">
+                <button (click)="agregarBicicleta()" class="btn btn-success">Agregar Bicicleta</button>
+            </div>
+        <div class="table-responsive m-auto mt-4">
+                   <table class="table">
+                       <thead>
+                       <tr>
+                           <th class="text-center" scope="col">Codigo</th>
+                           <th class="text-center" scope="col">Categoria</th>
+                           <th></th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                       <tr *ngFor="let item of arraydeBicicletas">
+                           <td class="text-center">{{item.codigo}}</td>
+                           <td class="text-center">{{item.categoria}}</td>
+                           <td class="w-25 text-center"><button type="button" class="btn btn-danger">Eliminar</button><button type="button" (click)="modificarBicicleta()" class="btn btn-primary">Modificar</button></td>
+                       </tr>
+                       </tbody>
+                   </table>       
+       </div>
+    </div>
+
+   
+</div>

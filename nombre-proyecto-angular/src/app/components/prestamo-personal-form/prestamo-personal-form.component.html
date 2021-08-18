@@ -1,0 +1,57 @@
+<div class="row-cols-1 m-auto pb-3" style="background-color: rgb(241, 241, 241);">
+    <div class="m-auto bg-white p-5 text-center">
+        <H2 style="font-weight: bold;font-size: 300%;">REGISTRAR PRESTAMO PERSONAL</H2>
+    </div>
+    <div class="w-75 m-auto pt-5 pb-4">
+        <div class="row row-cols-1">
+            <div *ngIf="clienteingresado==false" class="w-50 m-auto row-cols-1">
+                <button class="btn btn-primary" (click)="gestionarCliente()">Ingresar datos del Cliente</button>    
+            </div> 
+        </div>
+        <div class="" *ngIf="clienteingresado==true" style="border: solid black 1px;">
+            <div class="mt-2 text-center">
+                <h3 style="font-weight: bold;">Cliente Seleccionado</h3>
+            </div>
+            <hr>
+            <div  class="mt-4 row row-cols-3 " >
+                <p class="text-center " style="font-weight: bold;">Nombre : {{cliente.nombre}} </p>
+                <p class="text-center " style="font-weight: bold;">Apellido : {{cliente.apellido}}</p>
+                <p class="text-center " style="font-weight: bold;">DNI : {{cliente.dni}}</p>
+            </div>
+        </div>
+        <div class="row row-cols-1 mt-4">
+            <div class="w-50 m-auto row-cols-1" *ngIf="comprobarbici==false">
+                <button class="btn btn-primary" (click)="comprobarBicicleta()">Comprobar Bicicleta</button>    
+            </div> 
+        </div>
+        <div class="" *ngIf="comprobarbici==true" style="border: solid black 1px;">
+            <div class="mt-2 text-center">
+                <h3 style="font-weight: bold;">Datos de la Bicicleta</h3>
+            </div>
+            <hr>
+            <div  class="mt-4 row row-cols-2 " >
+                <p class="text-center " style="font-weight: bold;">Codigo : {{bicicleta.codigo}} </p>
+                <p class="text-center " style="font-weight: bold;">Categoria : {{bicicleta.categoria}}</p>
+            </div>
+        </div>
+        <div class="w-50 m-auto row row-cols-2 mt-5">
+            <p>Horas de Prestamo:</p>
+            <input type="number" name="" id="">
+        </div>
+        <div class="w-50 m-auto row-cols-1 mt-5">
+            <button class="btn btn-dark text-center" (click)="calcularMonto()">Calcular Monto</button>
+        </div>
+        <div *ngIf="cmonto==true" class="row row-cols-1 mt-4 text-center p-3" style="border: solid black 2px;">
+            <p class="text-center m-auto" style="font-weight: bold;">Monto a Pagar: 100$</p>
+        </div>
+
+        <div class="w-50 m-auto row row-cols-2 mt-4">
+            <p class="text-center">Entrega de la Bicicleta:</p>
+            <input class="text-center" style="height: 25px;" type="checkbox">
+        </div>
+
+        <div class="w-50 m-auto row-cols-1 mt-4">
+            <button class="btn btn-success text-center">Registrar Prestamo</button>
+        </div>
+    </div>
+</div>

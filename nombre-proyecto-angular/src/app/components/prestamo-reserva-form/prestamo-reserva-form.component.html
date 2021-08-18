@@ -1,0 +1,166 @@
+<div class="row-cols-1 m-auto pb-3" style="background-color: rgb(241, 241, 241);">
+    <div class="m-auto bg-white p-5 text-center">
+        <H2 style="font-weight: bold;font-size: 300%;">REGISTRAR RESERVA ONLINE</H2>
+    </div>
+    <div class="w-75 m-auto">
+        <div class="table-responsive m-auto mt-4">
+            <!--<table class="table table-striped border border-1" [mfData]="varraydeReserva" #mf="mfDataTable" [mfRowsOnPage]="5">
+                <thead>
+                    <tr>
+                        <th style="width: 20%">
+                            <mfDefaultSorter by="titulo">Cliente</mfDefaultSorter>
+                        </th>
+                        <th style="width: 20%">
+                            <mfDefaultSorter by="noticia">Bicicleta</mfDefaultSorter>
+                        </th>
+                        <th style="width: 20%">
+                            <mfDefaultSorter by="img">Horas</mfDefaultSorter>
+                        </th>
+                        <th style="width: 20%">
+                            <mfDefaultSorter by="vigente">Hora de inicio</mfDefaultSorter>
+                        </th>
+                        <th style="width: 20%">
+                            <mfDefaultSorter by="vigente">Hora de fin</mfDefaultSorter>
+                        </th>
+                        <th style="width: 20%">
+                            <mfDefaultSorter by="vigente">Monto</mfDefaultSorter>
+                        </th>
+                        <th style="width: 20%">
+                            <mfDefaultSorter by="vigente">Codigo de pago</mfDefaultSorter>
+                        </th>
+                        <th></th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of mf.data">
+                        <td class="text-center">{{item.idCliente}}</td>
+                        <td class="text-center">{{item.idBicicleta}}</td>
+                        <td class="text-center">{{item.horasdeprestamo}}</td>
+                        <td class="text-center">{{item.fechahorainicio}}</td>
+                        <td class="text-center">{{item.fechahorafin}}</td>
+                        <td class="text-center">{{item.monto}}</td>
+                        <td class="text-center">{{item.codigoPago}}</td>
+                        <td><button class="btn btn-success">Seleccionar</button></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4">
+                            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>-->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">Cliente</th>
+                        <th class="text-center" scope="col">Bicicleta</th>
+                        <th class="text-center" scope="col">Horas</th>
+                        <th class="text-center" scope="col">Hora de Inicio</th>
+                        <th class="text-center" scope="col">Hora de Fin</th>
+                        <th class="text-center" scope="col">Monto</th>
+                        <th class="text-center" scope="col">Codigo de Pago</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let reserva of varraydeReserva">
+                        <td class="text-center">{{reserva.idCliente}}</td>
+                        <td class="text-center">{{reserva.idBicicleta}}</td>
+                        <td class="text-center">{{reserva.horasdeprestamo}}</td>
+                        <td class="text-center">{{reserva.fechahorainicio | date:'dd/MM/yyyy hh:mm'}}</td>
+                        <td class="text-center">{{reserva.fechahorafin | date:'dd/MM/yyyy hh:mm'}}</td>
+                        <td class="text-center">{{reserva.monto | currency:'ARS$ '}}<i class="fa fa-arrows" aria-hidden="true"></i></td>
+                        <td class="text-center">{{reserva.codigoPago}}</td>
+                        <td><button class="btn btn-success" (click)="obtenerReserva(reserva._id)">Seleccionar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- RESERVA -->
+    <div class="w-75 m-auto">
+        <div class="accordion-item mb-3">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Alta de noticia
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse hide" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                <form #reservitaForm="ngForm" class="card-body row text-center">
+                    
+                    <div class="mb-3 col-12 col-md-3">
+                        <label for="idtitulo" class="form-label" style="font-weight: bold;">Id Cliente: </label>
+                        <p>{{reservita.idCliente}}</p>
+
+                    </div>
+                    <div class="mb-3 col-12 col-md-3">
+                        <label for="iddescripcion" class="form-label" style= "font-weight: bold;">Id bicicleta:</label>
+                        <p>{{reservita.idBicicleta}}</p>
+
+                    </div>
+                    <div class="mb-3 col-12 col-md-3">
+                        <label for="idimg" class="form-label" style="font-weight: bold;">Horas de préstamo</label>
+                        <p>{{reservita.horasdeprestamo}}</p>
+                    </div>
+                    <div class="mb-3 col-12 col-md-3">
+                        <label for="idimg" class="form-label" style="font-weight: bold;">Fecha hora de inicio</label>
+                        <p>{{reservita.fechahorainicio | date:'dd/MM/yyyy hh:mm'}}</p>
+                    </div>
+                    <div class="mb-3 col-12 col-md-4">
+                        <label for="idimg" class="form-label" style="font-weight: bold;">Fecha hora de fin</label>
+                        <p>{{reservita.fechahorafin | date:'dd/MM/yyyy hh:mm'}}</p>
+                    </div>
+                    <div class="mb-3 col-12 col-md-4">
+                        <label for="idimg" class="form-label" style="font-weight: bold;">Monto</label>
+                        <p>{{reservita.monto | currency:'ARS$ '}}</p>
+                    </div>
+                    <div class="mb-3 col-12 col-md-4">
+                        <label for="idimg" class="form-label" style="font-weight: bold;">Codigo de pago</label>
+                        <p>{{reservita.codigoPago}}</p>
+                    </div>
+
+                    <br>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-75 m-auto pt-5 pb-4 col-12 col-md-10 offset-md-1" >
+        <div class="row ">
+            <div class="text-center">
+                <button class="btn btn-primary" (click)="gestionarCliente()">Ingresar datos del Cliente</button>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="text-center">
+                <button class="btn btn-primary">Comprobar Bicicleta</button>
+            </div>
+        </div>
+
+        <div class=" m-auto row mt-5 text-center">
+            <p>Horas de Prestamo:</p>
+            <input type="number" class="col-md-2 offset-md-5" name="" id="">
+        </div>
+        <div class="m-auto mt-5 text-center">
+            <button class="btn btn-dark text-center">Calcular Monto</button>
+        </div>
+
+
+        <div class="m-auto mt-4 text-center">
+            <p class="text-center">Entrega de la Bicicleta:</p>
+            <input class="col-2" style="height: 25px;" type="checkbox">
+        </div>
+
+        <div class="m-auto mt-4 text-center">
+            <button class="btn btn-success ">Registrar Prestamo</button>
+        </div>
+    </div>

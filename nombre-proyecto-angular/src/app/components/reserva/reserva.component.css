@@ -1,0 +1,21 @@
+.horita[type="number"] {
+  width: 100px;
+}
+
+.horita + span {
+  padding-right: 30px;
+}
+
+.horita:invalid+span:after {
+  position: absolute;
+  content: '✖ HORA INVALIDA';
+  padding-left: 5px;
+}
+
+.horita:valid+span:after {
+  position: absolute;
+  content: '✓ HORA VALIDA';
+  padding-left: 5px;
+}
+
+

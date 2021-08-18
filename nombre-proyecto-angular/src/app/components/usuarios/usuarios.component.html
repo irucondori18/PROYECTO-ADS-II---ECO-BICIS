@@ -1,0 +1,45 @@
+<div class="row-cols-1 m-auto pb-3" style="background-color: rgb(241, 241, 241);">
+    <div class="m-auto bg-white p-5 text-center">
+            <H2 style="font-weight: bold;font-size: 300%;">USUARIOS</H2>
+    </div>
+    <div class="row row-cols-2 row-cols-md-4 m-auto mb-2 mt-3">
+        <div class="row-cols-1 mt-2">
+            <label class="text-center h-100" for="categoria" style="font-weight: bold;">Buscar usuario: </label>
+        </div>
+        <div class="row-cols-1 mt-2">
+            <input type="text" class="form-control" placeholder="Ingrese nombre de usuario...">
+        </div>
+        <div class="row-cols-1 mt-2">
+                <button class="btn btn-light">Buscar</button> 
+        </div>
+        <div class="row-cols-1 mt-2" >
+                <button type="button" class="btn btn-light">Listar todos</button>
+        </div>
+    </div>
+    <div class="w-75 m-auto">
+            <div class="row-cols-1 w-50 m-auto mt-4">
+                <button class="btn btn-success">Agregar Usuario</button>
+            </div>
+        <div class="table-responsive m-auto mt-4">
+                   <table class="table">
+                       <thead>
+                       <tr>
+                           <th class="text-center" scope="col">Contraseña</th>
+                           <th class="text-center" scope="col">Nombre de usuario</th>
+                           <th class="text-center" scope="col">Tipo de usuario</th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                       <tr *ngFor="let item of arrayUsuarios">
+                           <td class="text-center">{{item.contrasenia}}</td>
+                           <td class="text-center">{{item.nombreusuario}}</td>
+                           <td class="text-center">{{item.tipodeusuario}}</td>
+                           <td class="w-25 text-center"><button type="button" class="btn btn-danger">Eliminar</button><button type="button" (click)="modificarBicicleta()" class="btn btn-primary">Modificar</button></td>
+                       </tr>
+                       </tbody>
+                   </table>       
+       </div>
+    </div>
+
+   
+</div>
